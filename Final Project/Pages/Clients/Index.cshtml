@@ -1,0 +1,41 @@
+﻿@page
+@model Final_Project.Pages.Clients.IndexModel
+@{
+}
+
+<br >
+<h2>List OF Clients</h2>
+
+<!-- This is a button allows a user to create new client. -->
+<a class='btn btn-primary btn-sm' href='/Clients/Create'> New Client</a>
+<table class="table">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Phone</th>
+			<th>Address</th>
+			<th>Created</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<!-- Use this foreach list to fill the rows for the clients. -->
+		@foreach(var item in Model.listClients)
+		{
+			<tr>
+				<td>@item.id</td>
+				<td>@item.name</td>
+				<td>@item.email</td>
+				<td>@item.phone</td>
+				<td>@item.address</td>
+				<td>@item.created_at</td>
+				<td>
+				<a class="btn btn-primary btn-sm" href="/Clients/Edit?id= @item.id">Edit</a> 	<!-- Button to edit a client -->
+				<a class="btn btn-danger btn-sm" href="/Clients/Delete?id=@item.id">Delete</a>		<!-- Button to delete a client  -->
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
